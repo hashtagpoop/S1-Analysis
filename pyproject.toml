@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "s1-analysis"
+version = "0.1.0"
+description = ""
+authors = ["Ruoyu Chen, Ryan Luu"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sec-parser = "^0.58.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
