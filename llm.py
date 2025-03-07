@@ -15,6 +15,7 @@ import os
 from abc import ABC, abstractmethod
 from typing import Optional
 from openai import OpenAI
+from openai.types.chat import ChatCompletion
 from anthropic import Anthropic
 from dotenv import load_dotenv
 
@@ -32,11 +33,11 @@ class OpenAIProvider(LLMProvider):
     """OpenAI implementation of LLM provider"""
     
     def __init__(self, api_key: str, model: str = "gpt-4-turbo-preview"):
-        self.client = OpenAI(api_key=api_key)
-        self.model = model
+        self.client: OpenAI = OpenAI(api_key=api_key)
+        self.model: str = model
 
     def complete(self, prompt: str, **kwargs) -> str:
-        response = self.client.chat.completions.create(
+        response: ChatCompletion = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": prompt}],
             **kwargs
@@ -47,7 +48,7 @@ class AnthropicProvider(LLMProvider):
     """Anthropic implementation of LLM provider"""
     
     def __init__(self, api_key: str, model: str = "claude-3-sonnet"):
-        self.client = Anthropic(api_key=api_key)
+        self.client: Anthropic = Anthropic(api_key=api_key)
         self.model = model
 
     def complete(self, prompt: str, **kwargs) -> str:
