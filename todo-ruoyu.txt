@@ -1,0 +1,2 @@
+- Parsing brain to figure out which relevant context is necessary to figure out which S1 sections to look at
+- Look into embeddings or search to figure out what to include in context
