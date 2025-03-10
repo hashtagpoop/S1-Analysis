@@ -15,13 +15,16 @@ def create_edgar_url(cik, filing_id):
     edgar_url = f"https://www.sec.gov/Archives/edgar/data/{cik}/{file_identifer}/{file_name}"
     return edgar_url
 
-# TODO: fix this so we can just pass in the form type itself
-# and download the one that we want.
-def download_filing(input_file: str, form: str = "S-1"):
+def download_filing(input_file: str="", ticker: str="", form: str = "S-1"):
     # The company name and email address just need to be valid formats,
     # but doesn't have to be an actual company or email.
     dl = Downloader(COMPANY_NAME, COMPANY_EMAIL)
-    s1_content = dl.get_filing_html(query=input_file)
+    if input_file:
+        s1_content = dl.get_filing_html(query=input_file)
+    elif ticker:
+        s1_content = dl.get_filing_html(ticker=ticker, form=form)
+    else:
+        raise ValueError("Either input_file or ticker must be provided")
     return s1_content
 
 # TODO: maybe deprecate this since we don't need this to get the S1 filings
