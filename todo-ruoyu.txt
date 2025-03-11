@@ -1,2 +1,13 @@
 - Parsing brain to figure out which relevant context is necessary to figure out which S1 sections to look at
+    - need share count up for expiration
+    - expiration period
+    Sections we care about:
+      - SHARES ELIGIBLE FOR FUTURE SALE
+      - SECURITY OWNERSHIP OF CERTAIN BENEFICIAL OWNERS AND MANAGEMENT
+      - Lock-Up Agreements
+      - PRINCIPAL SHAREHOLDERS
+      - UNDERWRITING
+
+
+
 - Look into embeddings or search to figure out what to include in context
