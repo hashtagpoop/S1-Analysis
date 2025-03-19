@@ -11,7 +11,7 @@ Import:
 3. `response = llm.complete("Break down this share count in CSV form and timelines (by day) of expiry: 1000 shares of common stock locked up for 3 months, 5000 shares expiring for directors in 90 days, 5000 shares being offered to employees in 1 year")`
 """
 
-import os
+import ollama
 from abc import ABC, abstractmethod
 from typing import Optional
 from openai import OpenAI
@@ -59,6 +59,20 @@ class AnthropicProvider(LLMProvider):
         )
         return response.content[0].text
 
+class OllamaProvider(LLMProvider):
+    """Ollama implementation of LLM provider"""
+    
+    def __init__(self, model: str = "llama2"):
+        self.model = model
+
+    def complete(self, prompt: str, **kwargs) -> str:
+        response = ollama.chat(
+            model=self.model,
+            messages=[{"role": "user", "content": prompt}],
+            **kwargs
+        )
+        return response['message']['content']
+
 """
 LLM is implemented as a factory method so that you can create various
 LLM instances based on providers and different parameters you care about.
@@ -92,14 +106,14 @@ class LLM:
     @classmethod
     def create(cls, 
                provider_type: str,
-               api_key: str,
+               api_key: Optional[str] = None,
                model: Optional[str] = None) -> 'LLM':
         """
         Factory method to create an LLM instance with the specified provider
         
         Args:
-            provider_type (str): Type of provider ("openai" or "anthropic")
-            api_key (str): API key for the provider
+            provider_type (str): Type of provider ("openai", "anthropic", or "ollama")
+            api_key (Optional[str]): API key for the provider (not needed for Ollama)
             model (Optional[str]): Model to use, defaults to provider's default
             
         Returns:
@@ -109,14 +123,22 @@ class LLM:
             provider = OpenAIProvider(api_key, model) if model else OpenAIProvider(api_key)
         elif provider_type.lower() == "anthropic":
             provider = AnthropicProvider(api_key, model) if model else AnthropicProvider(api_key)
+        elif provider_type.lower() == "ollama":
+            provider = OllamaProvider(model) if model else OllamaProvider()
         else:
             raise ValueError(f"Unsupported provider type: {provider_type}")
         
         return cls(provider)
 
 if __name__ == "__main__":
+    """
     openai_llm = LLM.create(provider_type="openai",
         api_key=os.getenv("OPENAI_API_KEY"),
         model="gpt-4o-mini")
     response = openai_llm.complete("Break down this share count in CSV form and timelines (by day) of expiry: 1000 shares of common stock locked up for 3 months, 5000 shares expiring for directors in 90 days, 5000 shares being offered to employees in 1 year")
+    print(response)
+    """
+    ollama_llm = LLM.create(provider_type="ollama",
+        model="llama3.2")
+    response = ollama_llm.complete("Tell me what you know about S1 SEC docs.")
     print(response)
