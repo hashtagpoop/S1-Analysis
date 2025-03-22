@@ -160,17 +160,185 @@ def render_to_markdown(
 
     return "\n".join(markdown_lines)
 
-def test():
-    s1_content = download_filing(ticker="TBH", form="S-1")
-    elements: list = sp.Edgar10QParser().parse(s1_content)
-    tree = sp.TreeBuilder().build(elements)
-
-    # Convert tree to markdown
-    markdown_output = render_to_markdown(tree)
+def process_and_chunk_document(markdown_content: str, output_file: str = 'output.txt'):
+    """
+    Process a markdown document and create a parent-child document retrieval system using PostgreSQL.
+    This allows for both accurate semantic search (using small chunks) while maintaining
+    context (by retrieving larger parent chunks). Both parent and child chunks are stored in PGVector.
     
-    # Write markdown to output.txt
-    with open('output.txt', 'w', encoding='utf-8') as f:
-        f.write(markdown_output)
+    Args:
+        markdown_content: The markdown content to process
+        output_file: The file to write the markdown content to
+    """
+    from langchain.retrievers import ParentDocumentRetriever
+    from langchain_openai import OpenAIEmbeddings
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
+    from langchain_community.document_loaders import TextLoader
+    from langchain_postgres import PGVector
+    from langchain.storage import InMemoryStore
+    import psycopg
+    import os
+    
+    # PostgreSQL connection settings from environment variables with defaults
+    DB_USER = os.getenv('POSTGRES_USER', 'postgres')
+    DB_PASS = os.getenv('POSTGRES_PASSWORD', 'postgres')
+    DB_HOST = os.getenv('POSTGRES_HOST', 'localhost')
+    DB_PORT = os.getenv('POSTGRES_PORT', '5432')
+    DB_NAME = os.getenv('POSTGRES_DB', 'vectordb')
+    
+    # Create SQLAlchemy connection string
+    CONNECTION_STRING = f"postgresql+psycopg://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    
+    # Create psycopg connection for admin tasks
+    admin_conn = psycopg.connect(
+        host=DB_HOST,
+        port=DB_PORT,
+        user=DB_USER,
+        password=DB_PASS,
+        dbname=DB_NAME
+    )
+    
+    try:
+        # Create vector extension if it doesn't exist
+        with admin_conn.cursor() as cursor:
+            cursor.execute('CREATE EXTENSION IF NOT EXISTS vector;')
+        admin_conn.commit()
+    finally:
+        admin_conn.close()
+    
+    # Collection names for parent and child chunks
+    PARENT_COLLECTION = "s1_filing_parent_chunks"
+    CHILD_COLLECTION = "s1_filing_child_chunks"
+    
+    # Write the markdown content to file
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(markdown_content)
+
+    # Load the markdown file
+    loader = TextLoader(output_file)
+    documents = loader.load()
+
+    # Create parent and child splitters with markdown-aware separators
+    markdown_separators = [
+        "\n# ",      # h1
+        "\n## ",     # h2
+        "\n### ",    # h3
+        "\n#### ",   # h4
+        "\n##### ",  # h5
+        "\n###### ", # h6
+        "\n\n",      # paragraphs
+        "\n",        # lines
+        ". ",        # sentences
+        " ",         # words
+        ""          # chars
+    ]
+
+    # Parent chunks are larger for context
+    parent_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=2000,
+        chunk_overlap=200,
+        separators=markdown_separators,
+        length_function=len,
+        keep_separator=True
+    )
+    
+    # Child chunks are smaller for better embedding
+    child_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=400,
+        chunk_overlap=50,
+        separators=markdown_separators,
+        length_function=len,
+        keep_separator=True
+    )
+
+    try:
+        # Initialize embedding function
+        embedding_function = OpenAIEmbeddings()
+        
+        # Debug: Print first document content and metadata
+        print("\nFirst document content:", documents[0].page_content[:100])
+        print("First document metadata:", documents[0].metadata)
+        
+        # Debug: Generate and print a sample embedding
+        sample_embedding = embedding_function.embed_query(documents[0].page_content[:100])
+        print("\nSample embedding dimension:", len(sample_embedding))
+        
+        # Initialize parent vectorstore with non-empty documents
+        parent_vectorstore = PGVector.from_documents(
+            documents=documents,  # Use actual documents instead of empty list
+            embedding=embedding_function,
+            collection_name=PARENT_COLLECTION,
+            connection=CONNECTION_STRING,
+            pre_delete_collection=True,
+            distance_strategy="cosine"
+        )
+        
+        # Initialize child vectorstore with non-empty documents
+        child_vectorstore = PGVector.from_documents(
+            documents=documents,  # Use actual documents instead of empty list
+            embedding=embedding_function,
+            collection_name=CHILD_COLLECTION,
+            connection=CONNECTION_STRING,
+            pre_delete_collection=True,
+            distance_strategy="cosine"
+        )
+
+        # Initialize the in-memory store for document bytes
+        doc_store = InMemoryStore()
+
+        # Create the parent document retriever using both PGVector stores
+        retriever = ParentDocumentRetriever(
+            vectorstore=child_vectorstore,  # For child chunks
+            parent_splitter=parent_splitter,
+            child_splitter=child_splitter,
+            parent_vectorstore=parent_vectorstore,  # For parent chunks
+            byte_store=doc_store  # Store for full documents
+        )
+
+        # Add documents to the retriever
+        retriever.add_documents(documents)
+        return retriever, parent_vectorstore, child_vectorstore
+        
+    except Exception as e:
+        print(f"Error setting up document retrieval system: {str(e)}")
+        raise
+
+def test():
+    try:
+        s1_content = download_filing(ticker="TBH", form="S-1")
+        elements: list = sp.Edgar10QParser().parse(s1_content)
+        tree = sp.TreeBuilder().build(elements)
+
+        # Convert tree to markdown
+        markdown_output = render_to_markdown(tree)
+        
+        # Process and chunk the document
+        retriever, parent_vectorstore, child_vectorstore = process_and_chunk_document(markdown_output)
+        
+        # Example searches to test the retriever
+        test_queries = [
+            "lockup period",
+            "common stock",
+            "risk factors",
+            "financial statements"
+        ]
+        
+        # Print chunking statistics and sample searches
+        print(f"\nChunking Statistics:")
+        print(f"Number of parent documents: {len(parent_vectorstore.similarity_search('', k=10000))}")
+        
+        for query in test_queries:
+            print(f"\n{'='*80}")
+            print(f"Search results for '{query}':")
+            results = retriever.invoke(query)
+            
+            for i, doc in enumerate(results[:2], 1):
+                print(f"\nResult {i} (length: {len(doc.page_content)} chars):")
+                print(f"Preview: {doc.page_content[:200]}...")
+                
+    except Exception as e:
+        print(f"Error in test function: {str(e)}")
+        raise
 
 if __name__ == "__main__":
     test()
