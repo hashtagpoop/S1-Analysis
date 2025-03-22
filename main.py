@@ -210,6 +210,9 @@ def process_and_chunk_document(markdown_content: str, output_file: str = 'output
     PARENT_COLLECTION = "s1_filing_parent_chunks"
     CHILD_COLLECTION = "s1_filing_child_chunks"
     
+    # TODO: fix file metadata, ingestion parameters, and name,
+    # so that it's more easy to search via the company name and
+    # the releavant information.
     # Write the markdown content to file
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(markdown_content)
@@ -291,7 +294,6 @@ def process_and_chunk_document(markdown_content: str, output_file: str = 'output
             vectorstore=child_vectorstore,  # For child chunks
             parent_splitter=parent_splitter,
             child_splitter=child_splitter,
-            parent_vectorstore=parent_vectorstore,  # For parent chunks
             byte_store=doc_store  # Store for full documents
         )
 
@@ -313,7 +315,7 @@ def test():
         markdown_output = render_to_markdown(tree)
         
         # Process and chunk the document
-        retriever, parent_vectorstore, child_vectorstore = process_and_chunk_document(markdown_output)
+        retriever, parent_vectorstore = process_and_chunk_document(markdown_output)
         
         # Example searches to test the retriever
         test_queries = [
@@ -335,6 +337,7 @@ def test():
             for i, doc in enumerate(results[:2], 1):
                 print(f"\nResult {i} (length: {len(doc.page_content)} chars):")
                 print(f"Preview: {doc.page_content[:200]}...")
+                print(f"Full document: {doc.page_content}")
                 
     except Exception as e:
         print(f"Error in test function: {str(e)}")
