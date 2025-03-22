@@ -1,4 +1,4 @@
 # Ryan
-- Make open AI wrapper
+- Fix metadata for the RAG setup and query by metadata company
 - S1 prompt engineering to pull future share sells and lock up dates
 - S1 prompt engineering to get understanding of categorization and market
