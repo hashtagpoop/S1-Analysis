@@ -160,7 +160,7 @@ def render_to_markdown(
 
     return "\n".join(markdown_lines)
 
-def process_and_chunk_document(markdown_content: str, output_file: str = 'output.txt'):
+def process_and_chunk_document(markdown_content: str, ticker: str, form_type: str):
     """
     Process a markdown document and create a parent-child document retrieval system using PostgreSQL.
     This allows for both accurate semantic search (using small chunks) while maintaining
@@ -210,10 +210,12 @@ def process_and_chunk_document(markdown_content: str, output_file: str = 'output
     PARENT_COLLECTION = "s1_filing_parent_chunks"
     CHILD_COLLECTION = "s1_filing_child_chunks"
     
+    
     # TODO: fix file metadata, ingestion parameters, and name,
     # so that it's more easy to search via the company name and
     # the releavant information.
     # Write the markdown content to file
+    output_file = f"{ticker}-{form_type}.txt"
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(markdown_content)
 
@@ -221,26 +223,13 @@ def process_and_chunk_document(markdown_content: str, output_file: str = 'output
     loader = TextLoader(output_file)
     documents = loader.load()
 
-    # Create parent and child splitters with markdown-aware separators
-    markdown_separators = [
-        "\n# ",      # h1
-        "\n## ",     # h2
-        "\n### ",    # h3
-        "\n#### ",   # h4
-        "\n##### ",  # h5
-        "\n###### ", # h6
-        "\n\n",      # paragraphs
-        "\n",        # lines
-        ". ",        # sentences
-        " ",         # words
-        ""          # chars
-    ]
-
+    # TODO: we want to preserve sections and not just chunk
+    # stupidly at an arbitrary size. Tables and context are getting
+    # cut off.
     # Parent chunks are larger for context
     parent_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=2000,
-        chunk_overlap=200,
-        separators=markdown_separators,
+        chunk_size=4000,
+        chunk_overlap=500,
         length_function=len,
         keep_separator=True
     )
@@ -249,7 +238,6 @@ def process_and_chunk_document(markdown_content: str, output_file: str = 'output
     child_splitter = RecursiveCharacterTextSplitter(
         chunk_size=400,
         chunk_overlap=50,
-        separators=markdown_separators,
         length_function=len,
         keep_separator=True
     )
@@ -258,14 +246,8 @@ def process_and_chunk_document(markdown_content: str, output_file: str = 'output
         # Initialize embedding function
         embedding_function = OpenAIEmbeddings()
         
-        # Debug: Print first document content and metadata
-        print("\nFirst document content:", documents[0].page_content[:100])
-        print("First document metadata:", documents[0].metadata)
-        
-        # Debug: Generate and print a sample embedding
-        sample_embedding = embedding_function.embed_query(documents[0].page_content[:100])
-        print("\nSample embedding dimension:", len(sample_embedding))
-        
+        # TODO: we may not want to pre-delete later on because
+        # we can remove data unknowingly.
         # Initialize parent vectorstore with non-empty documents
         parent_vectorstore = PGVector.from_documents(
             documents=documents,  # Use actual documents instead of empty list
@@ -297,8 +279,16 @@ def process_and_chunk_document(markdown_content: str, output_file: str = 'output
             byte_store=doc_store  # Store for full documents
         )
 
+        # Add documents to the retriever with custom
+        # metadata.
+        for doc in documents:
+            # Update metadata of each document.
+            # Refactor to a helper method later.
+            doc.metadata["ticker"] = ticker
+            doc.metadata["form_type"] = form_type
+        
         # Add documents to the retriever
-        retriever.add_documents(documents)
+        retriever.add_documents(documents)  
         return retriever, parent_vectorstore, child_vectorstore
         
     except Exception as e:
@@ -307,7 +297,11 @@ def process_and_chunk_document(markdown_content: str, output_file: str = 'output
 
 def test():
     try:
-        s1_content = download_filing(ticker="TBH", form="S-1")
+        ticker = "LUXH"
+        form_type = "S-1"
+        # NB: this download filing will get the latest S1 for a given ticker.
+        # Just note that there could be multiple S1s or 10Qs or etc. for each ticker.
+        s1_content = download_filing(ticker=ticker, form=form_type)
         elements: list = sp.Edgar10QParser().parse(s1_content)
         tree = sp.TreeBuilder().build(elements)
 
@@ -315,29 +309,45 @@ def test():
         markdown_output = render_to_markdown(tree)
         
         # Process and chunk the document
-        retriever, parent_vectorstore = process_and_chunk_document(markdown_output)
+        retriever, parent_vectorstore, _ = process_and_chunk_document(markdown_output, ticker, form_type)
         
         # Example searches to test the retriever
-        test_queries = [
-            "lockup period",
-            "common stock",
-            "risk factors",
-            "financial statements"
+        # Matches these to find the relevant chunks for
+        # common shares upcoming and the lock up periods.
+        
+        # IDEA: throw each of the results of these into the LLM to do the work
+        # independently to get the lock up data or common shares (if relevant, if not ignore)
+        # Later on, we can run one last query to "join" the data so that we can get the info
+        # about shares eligible with their respective dates.
+        
+        """
+        queries = [
+            "lock-up agreement",
+            "lockup",
+            "shares eligible for future sale",
+            "security ownership",
+            "principal shareholders",
         ]
+        """
+        # TODO: consider if we want one query + high k, or multiple queries + low k.
+        queries = ["the lock up agreements and the shares eligible for future sale from principal shareholders for restricted securities"]
         
         # Print chunking statistics and sample searches
         print(f"\nChunking Statistics:")
         print(f"Number of parent documents: {len(parent_vectorstore.similarity_search('', k=10000))}")
         
-        for query in test_queries:
+        for query in queries:
             print(f"\n{'='*80}")
             print(f"Search results for '{query}':")
-            results = retriever.invoke(query)
+            results = retriever.invoke(query, search_kwargs = {
+                "filter": {"ticker": "LUXH"},
+                "k": 25
+            })
             
-            for i, doc in enumerate(results[:2], 1):
+            for i, doc in enumerate(results[:5]):
                 print(f"\nResult {i} (length: {len(doc.page_content)} chars):")
                 print(f"Preview: {doc.page_content[:200]}...")
-                print(f"Full document: {doc.page_content}")
+                print(f"Full document (length of {len(doc.page_content)}): {doc.page_content}")
                 
     except Exception as e:
         print(f"Error in test function: {str(e)}")
