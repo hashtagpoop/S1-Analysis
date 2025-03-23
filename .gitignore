@@ -175,3 +175,5 @@ cython_debug/
 
 # Debug
 output.txt
+log.txt
+*-S-1.txt
