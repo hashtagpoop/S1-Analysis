@@ -297,7 +297,7 @@ def process_and_chunk_document(markdown_content: str, ticker: str, form_type: st
 
 def test():
     try:
-        ticker = "LUXH"
+        ticker = "UBER"
         form_type = "S-1"
         # NB: this download filing will get the latest S1 for a given ticker.
         # Just note that there could be multiple S1s or 10Qs or etc. for each ticker.
@@ -330,7 +330,12 @@ def test():
         ]
         """
         # TODO: consider if we want one query + high k, or multiple queries + low k.
-        queries = ["the lock up agreements and the shares eligible for future sale from principal shareholders for restricted securities"]
+        # TODO: also need to do keyword search since "shares eligible for future sale" and "lock up" are pretty telling.
+        queries = ["the lock up agreements and rule 144", "shares eligible for future sale"]
+        
+        # LATEST NOTE: two queries we will need:
+        # 1. The lock up agreements, rule 144, when people can dump shares
+        # 2. Principal stockholders, total amount of shares, shares being offered
         
         # Print chunking statistics and sample searches
         print(f"\nChunking Statistics:")
@@ -340,7 +345,7 @@ def test():
             print(f"\n{'='*80}")
             print(f"Search results for '{query}':")
             results = retriever.invoke(query, search_kwargs = {
-                "filter": {"ticker": "LUXH"},
+                "filter": {"ticker": ticker},
                 "k": 25
             })
             
