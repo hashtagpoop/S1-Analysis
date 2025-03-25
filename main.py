@@ -174,7 +174,7 @@ def process_and_chunk_document(markdown_content: str, ticker: str, form_type: st
     from langchain_openai import OpenAIEmbeddings
     from langchain_text_splitters import RecursiveCharacterTextSplitter
     from langchain_community.document_loaders import TextLoader
-    from langchain_postgres import PGVector
+    from hybrid_search import HybridPGVectorFTS
     from langchain.storage import InMemoryStore
     import psycopg
     import os
@@ -249,7 +249,7 @@ def process_and_chunk_document(markdown_content: str, ticker: str, form_type: st
         # TODO: we may not want to pre-delete later on because
         # we can remove data unknowingly.
         # Initialize parent vectorstore with non-empty documents
-        parent_vectorstore = PGVector.from_documents(
+        parent_vectorstore = HybridPGVectorFTS.from_documents(
             documents=documents,  # Use actual documents instead of empty list
             embedding=embedding_function,
             collection_name=PARENT_COLLECTION,
@@ -259,7 +259,7 @@ def process_and_chunk_document(markdown_content: str, ticker: str, form_type: st
         )
         
         # Initialize child vectorstore with non-empty documents
-        child_vectorstore = PGVector.from_documents(
+        child_vectorstore = HybridPGVectorFTS.from_documents(
             documents=documents,  # Use actual documents instead of empty list
             embedding=embedding_function,
             collection_name=CHILD_COLLECTION,
