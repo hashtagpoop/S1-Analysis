@@ -1,6 +1,8 @@
 # Ryan
+- Fix up the hybrid search so it's more robust + factors in filtering
+- Integrate reranking of results so they match
 - Revisit chunking to make sure we don't cut off tables or sentences
 - Tune the prompt we need to use getting the right matches
-- Integrate reranking of results so they match
+
 - S1 prompt engineering to pull future share sells and lock up dates
 - S1 prompt engineering to get understanding of categorization and market

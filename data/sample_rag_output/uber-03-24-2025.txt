@@ -1,0 +1,580 @@
+
+Chunking Statistics:
+I AM THE FILTERS:  None
+I AM THE QUERY: 
+Number of parent documents: 1
+
+================================================================================
+Search results for 'the lock up agreements and rule 144':
+I AM THE FILTERS:  None
+I AM THE QUERY: the lock up agreements and rule 144
+
+Result 0 (length: 3846 chars):
+Preview: Rule 144 In general, under Rule 144 as currently in effect, once we have been subject to the public company reporting requirements of Section 13 or
+Section 15(d) of the Exchange Act for at least 90 da...
+Full document (length of 3846): Rule 144 In general, under Rule 144 as currently in effect, once we have been subject to the public company reporting requirements of Section 13 or
+Section 15(d) of the Exchange Act for at least 90 days, an eligible stockholder is entitled to sell such shares without complying with the manner of sale, volume limitation or notice provisions of Rule 144, subject to compliance with the public
+information requirements of Rule 144. To be an eligible stockholder under Rule 144, such stockholder must not be deemed to have been one of our affiliates for purposes of the Securities Act at any time during the 90 days preceding a sale and who has
+beneficially owned the shares proposed to be sold for at least six months, including the holding period of any prior owner other than our affiliates. If such a person has beneficially owned the shares proposed to be sold for at least one year,
+including the holding period of any prior owner other than our affiliates, then such person is entitled to sell such shares without complying with any of the requirements of Rule 144, subject further to the expiration of the lockup and market
+standoff agreements described below. In general, under Rule 144, as currently in effect, our affiliates or persons selling shares on
+behalf of our affiliates are entitled to sell our shares as follows, subject to expiration of the lockup and market standoff agreements described below. Beginning 90 days after the date of this prospectus, within any three-month period, such
+stockholders may sell a number of shares that does not exceed the greater of: 
+
+ 
+
+ 
+ 1% of the number of common stock then outstanding, which will equal
+approximately                  shares immediately after this offering; or 
+
+ 
+
+ 
+ the average weekly trading volume of our common stock during the four calendar weeks preceding the filing of a
+notice on Form 144 with respect to such sale. Sales under Rule 144 by our affiliates or persons selling shares on
+behalf of our affiliates are also subject to certain manner of sale provisions and notice requirements and to the availability of current public information about us. Rule 701 Rule 701 generally allows a
+stockholder who was issued shares under a written compensatory plan or contract and who is not deemed to have been an affiliate of our company during the immediately preceding 90 days, to sell these shares in reliance on Rule 144, but without
+being required to comply with the public information, holding period, volume limitation or notice provisions of Rule 144. Rule 701 also permits affiliates of our company to sell their Rule 701 shares under Rule 144 without complying with the holding
+period requirements of Rule 144. All holders of Rule 701 shares, however, are required by that rule to wait until 90 days after the date of this prospectus before selling those shares under Rule 701, subject further to the expiration of the lockup
+and market standoff agreements described below. Form S-8 Registration Statements We intend to file one or more registration statements on Form S-8 under the Securities Act with the SEC
+to register the offer and sale of shares of our common stock that are issuable under our 2010 Plan, 2013 Plan, 2019 Plan and ESPP, as well as our non-plan share awards. These registration statements will
+become effective immediately on filing. Shares covered by these registration statements will then be eligible for sale in the public markets, subject to vesting restrictions, any applicable lockup and market standoff agreements described below, and
+Rule 144 limitations applicable to affiliates. Lockup and Market Standoff Agreements We, and all of our directors, executive officers, the selling stockholders, and the record holders of substantially all of our common stock and
+securities exercisable or exchangeable for or convertible into our
+
+Result 1 (length: 1195 chars):
+Preview: convertible preferred stock warrant liability to common stock and additional paid-in capital for such exercises, and the issuance of                 shares in this
+offering. Of these shares, only the ...
+Full document (length of 1195): convertible preferred stock warrant liability to common stock and additional paid-in capital for such exercises, and the issuance of                 shares in this
+offering. Of these shares, only the shares of common stock sold in this offering will be freely tradable, without restriction, in the public market immediately after this offering. Each of our directors, executive officers, the selling stockholders,
+and other record holders of substantially all of our outstanding shares of common stock and securities convertible into our exercisable or exchangeable for shares of our common stock are subject to market standoff agreements with us or have entered
+into lockup agreements with the underwriters that restrict their ability to sell or transfer their shares for 180 days after the date of this prospectus, subject to the limitations described in the section titled Underwriters. However,
+Morgan Stanley & Co. LLC may, in its sole discretion, waive the lockup agreements with the underwriters before they expire. After the lockup and market standoff agreements expire,
+all                  shares outstanding as of December 31, 2018 (assuming the closing of the offering) will become
+
+================================================================================
+Search results for 'shares eligible for future sale':
+I AM THE FILTERS:  None
+I AM THE QUERY: shares eligible for future sale
+
+Result 0 (length: 2412 chars):
+Preview: Morgan Stanley
+ 
+Goldman Sachs & Co. LLC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BofA Merrill Lynch
+ 
+Barclays
+ 
+Citigroup
+ 
+Allen & Company LLC
+
+RBC Capital Markets
+ 
+SunTrust Robinson Humphrey
+ 
+Deutsche Bank Securities
+
+
+
+...
+Full document (length of 2412): Morgan Stanley
+ 
+Goldman Sachs & Co. LLC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BofA Merrill Lynch
+ 
+Barclays
+ 
+Citigroup
+ 
+Allen & Company LLC
+
+RBC Capital Markets
+ 
+SunTrust Robinson Humphrey
+ 
+Deutsche Bank Securities
+
+
+
+
+
+HSBC
+ 
+SMBC 
+ 
+Mizuho Securities
+
+Needham & Company
+ 
+Loop Capital Markets
+ 
+Siebert Cisneros Shank & Co., L.L.C.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Academy Securities
+ 
+BTIG
+ 
+Canaccord Genuity
+ 
+CastleOak Securities, L.P.
+ 
+Cowen
+ 
+Evercore ISI
+ 
+JMP Securities
+ 
+Macquarie Capital
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mischler Financial Group, Inc.
+ 
+Oppenheimer & Co.
+ 
+Raymond James
+ 
+William Blair
+ 
+The Williams Capital Group, L.P.
+ 
+TPG Capital BD
+Prospectus dated                 , 2019.
+
+We ignite opportunity by setting the world in motion.
+
+6 Continents 3 Platform Offerings 700+ Cities 91M MAPCs 14M Trips a day $78B Paid to Drivers Trips a day for the year ended December 31,
+2018. All other data as of December 31, 2018
+
+10+ Billion Trips 10B Trips September 2018 12 Months later (+5B) 5B Trips September 2017 11 Months later (+3B) 2B Trips October 2016 7
+Months later (+1B) 1B Trips March 2016 5 Years after launch (+1B) 2012 2013 2014 2015 2016 2017 2018
+
+# TABLE OF CONTENTS
+Glossary 
+  
+ 
+ii
+ 
+
+ Letter from Dara Khosrowshahi, Chief Executive Officer
+  
+ 
+vi
+ 
+
+ Prospectus Summary
+  
+ 
+1
+ 
+
+ Risk Factors
+  
+ 
+25
+ 
+
+ Special Note Regarding Forward-Looking Statements
+  
+ 
+73
+ 
+
+ Market, Industry, and Other Data
+  
+ 
+75
+ 
+
+ Use of Proceeds
+  
+ 
+76
+ 
+
+ Dividend Policy
+  
+ 
+77
+ 
+
+ Capitalization
+  
+ 
+78
+ 
+
+ Dilution
+  
+ 
+81
+ 
+
+ Unaudited Pro Forma Consolidated Financial Information 
+  
+ 
+85
+ 
+
+ Selected Consolidated Financial and Operating Data
+  
+ 
+88
+ 
+
+ Managements Discussion and Analysis of Financial Condition and Results
+ of Operations
+  
+ 
+92
+
+Business
+  
+ 
+146
+ 
+
+ Management
+  
+ 
+201
+ 
+
+ Letter from Dr. Ronald Sugar, Chairperson of the Board of Directors
+
+  
+ 
+207
+ 
+
+ Corporate Governance
+  
+ 
+208
+ 
+
+ Executive Compensation
+  
+ 
+224
+ 
+
+ Certain Relationships and Related Person Transactions
+  
+ 
+252
+ 
+
+ Principal and Selling Stockholders
+  
+ 
+258
+ 
+
+ Description of Capital Stock
+  
+ 
+261
+ 
+
+ Shares Eligible for Future Sale
+  
+ 
+266
+ 
+
+ Material U.S. Federal Income Tax Consequences to Non-U.S. Holders
+  
+ 
+269
+ 
+
+ Underwriters
+  
+ 
+273
+ 
+
+ Legal Matters
+  
+ 
+285
+ 
+
+ Experts
+  
+ 
+285
+ 
+
+ Where You Can Find Additional Information
+  
+ 
+285
+ 
+
+ Index to Consolidated Financial Statements
+  
+ 
+F-1
+
+Result 1 (length: 2242 chars):
+Preview: Executive Compensation
+  
+ 
+224
+ 
+
+ Certain Relationships and Related Person Transactions
+  
+ 
+252
+ 
+
+ Principal and Selling Stockholders
+  
+ 
+258
+ 
+
+ Description of Capital Stock
+  
+ 
+261
+ 
+
+ Shares ...
+Full document (length of 2242): Executive Compensation
+  
+ 
+224
+ 
+
+ Certain Relationships and Related Person Transactions
+  
+ 
+252
+ 
+
+ Principal and Selling Stockholders
+  
+ 
+258
+ 
+
+ Description of Capital Stock
+  
+ 
+261
+ 
+
+ Shares Eligible for Future Sale
+  
+ 
+266
+ 
+
+ Material U.S. Federal Income Tax Consequences to Non-U.S. Holders
+  
+ 
+269
+ 
+
+ Underwriters
+  
+ 
+273
+ 
+
+ Legal Matters
+  
+ 
+285
+ 
+
+ Experts
+  
+ 
+285
+ 
+
+ Where You Can Find Additional Information
+  
+ 
+285
+ 
+
+ Index to Consolidated Financial Statements
+  
+ 
+F-1
+
+Neither we, the
+selling stockholders, nor any of the underwriters have authorized anyone to provide you with any information other than the information contained in this prospectus or in any free writing prospectuses we have prepared. Neither we, the selling
+stockholders, nor the underwriters take responsibility for, and provide no assurance about the reliability of, any information that others may give you. This prospectus is an offer to sell only the shares offered hereby and only under circumstances
+and in jurisdictions where it is lawful to do so. The information contained in this prospectus is accurate only as of the date of this prospectus, regardless of the time of delivery of this prospectus or any sale of the shares of our common stock.
+Our business, financial condition, results of operations, and prospects may have changed since that date. No action is being taken in any
+jurisdiction outside the United States to permit a public offering of our common stock or possession or distribution of this prospectus in any such jurisdiction. Persons who come into possession of this prospectus in jurisdictions outside the United
+States are required to inform themselves about and observe any restrictions relating to this offering and the distribution of this prospectus applicable to those jurisdictions. Through and including
+                    , 2019 (the 25th day after the date of this prospectus), all dealers that effect transactions in our common stock, whether or not
+participating in this offering, may be required to deliver a prospectus. This delivery requirement is in addition to a dealers obligation to deliver a prospectus when acting as an underwriter and with respect to unsold allotments or
+subscriptions. i
+
+Result 2 (length: 3906 chars):
+Preview: SHARES ELIGIBLE FOR FUTURE SALE 
+Before the closing of this offering, there has been no public market for our common stock. Future sales of substantial amounts of our common
+stock, including shares is...
+Full document (length of 3906): SHARES ELIGIBLE FOR FUTURE SALE 
+Before the closing of this offering, there has been no public market for our common stock. Future sales of substantial amounts of our common
+stock, including shares issued on the exercise of outstanding options or settlement of RSUs, in the public market after this offering, or the possibility of these sales or issuances occurring, could adversely affect the prevailing market price for
+our common stock or impair our ability to raise equity capital.  Based on our shares outstanding as of December 31, 2018, on the closing
+of this offering, a total of              shares of common stock will be outstanding, assuming (i) the automatic conversion of 903.6 million shares of redeemable convertible
+preferred stock outstanding as of December 31, 2018 into 903.6 million shares of our common stock immediately prior to the closing of this offering, (ii) the net issuance of
+            shares of our common stock upon the vesting and settlement of RSUs for which the service-based vesting condition was satisfied as of December 31, 2018 and the liquidity
+event-based vesting condition will be satisfied in connection with this offering, after giving effect to shares withheld to satisfy the associated withholding tax obligations (based on the assumed initial public offering price of
+$         per share and an assumed     % tax withholding rate), (iii) the assumed cash exercise of a warrant to purchase 150,071 shares of our Series E redeemable convertible preferred
+stock outstanding as of December 31, 2018, which will result in the issuance of 150,071 shares of our common stock in connection with this offering, (iv) the automatic conversion of 922,655 shares of our Series G redeemable convertible
+preferred stock issued upon the exercise of a warrant in February 2019 into 922,655 shares of our common stock in connection with this offering, and (v)              shares of our
+common stock issuable upon the conversion of $2.9 billion aggregate principal amount of Convertible Notes outstanding as of December 31, 2018, plus additional accrued principal of $         (through an
+assumed conversion date of                 , 2019 and based on the assumed initial public offering price of $          per share)
+in connection with the closing of this offering. Of these shares, all of the common stock sold in this offering by us or the selling stockholders, plus any shares sold by us upon exercise, if any, of the underwriters over-allotment option,
+will be freely tradable in the public market without restriction or further registration under the Securities Act, unless these shares are held by affiliates, as that term is defined in Rule 144 under the Securities Act. 
+The remaining shares of common stock will be, and shares of common stock underlying outstanding RSUs, or subject to stock options or warrants
+will be on issuance, restricted securities, as that term is defined in Rule 144 under the Securities Act. These restricted securities are eligible for public sale only if they are registered under the Securities Act or if they
+qualify for an exemption from registration under Rules 144 or 701 under the Securities Act, which are summarized below. Restricted securities may also be sold outside of the United States to non-U.S. persons
+in accordance with Rule 904 of Regulation S.  On the settlement date of the RSUs that are scheduled to vest after the closing of this
+offering, we must withhold income taxes at applicable minimum statutory rates based on the then-current value of the common stock underlying the portion of the RSUs that vests on such date. The lockup agreements described below permit us to
+allow holders of our RSUs to sell shares of our common stock in the open market to cover any income taxes owed. Alternatively, we may elect to permit holders of our RSUs to net settle such RSUs. We currently expect that the average of
+
+Result 3 (length: 3879 chars):
+Preview: eligible for sale in the public market to the extent permitted by the provisions of various vesting agreements and Rules 144 and 701 of the Securities Act of 1933, as amended (the
+Securities Act). I...
+Full document (length of 3879): eligible for sale in the public market to the extent permitted by the provisions of various vesting agreements and Rules 144 and 701 of the Securities Act of 1933, as amended (the
+Securities Act). In addition,                  shares of common stock were subject to outstanding stock options, RSUs, stock appreciation rights
+(SARs), and warrants as of December 31, 2018, and outstanding RSUs covering, and stock options to purchase, an aggregate
+of                  shares of common stock were granted subsequent to December 31, 2018. We intend to file a registration statement on Form S-8 under the Securities Act covering all the shares of common stock subject to outstanding equity awards and shares reserved for issuance under our stock plans. This registration statement will become effective
+immediately on its filing, and shares covered by this registration statement will be eligible for sale in the public markets, subject to Rule 144 limitations applicable to affiliates and any lockup and market standoff agreements described above. If
+these additional shares are sold, or if it is perceived that they will be sold in the public market, the trading price of our common stock could decline. 
+We anticipate incurring a substantial obligation in connection with tax liabilities on the initial settlement of RSUs in connection with this offering.
+The manner in which we fund these tax liabilities may have an adverse effect on our financial condition or may add to the dilution of our stockholders in the offering. 
+In light of the large number of RSUs that will initially settle in connection with this offering, we anticipate that we will expend substantial
+funds to satisfy tax withholding and remittance obligations on the effective date of our registration statement. Substantially all of the RSUs granted prior to the date of this prospectus, which we sometimes refer to as the pre-offering RSUs, vest upon the satisfaction of both a service-based vesting condition and a liquidity event-based vesting condition. The service-based vesting condition is generally satisfied over a period of four
+years, and the liquidity event-based condition is satisfied on the earlier of (i) the effective date of this offering and (ii) the date of a change in control. As a result, a large number of RSUs which have previously satisfied the
+service-based vesting condition will vest in connection with the effectiveness of this offering. On the settlement dates for the pre-offering RSUs, we plan to withhold shares and remit income taxes on behalf
+of the holders of the pre-offering RSUs at applicable statutory rates, which we refer to as a net settlement. 
+We anticipate that we will net settle RSUs that have previously satisfied the service-based vesting condition and will vest in connection with
+this offering, and withhold and remit income taxes at applicable statutory rates based on the value of the underlying shares on the settlement date. For pre-offering RSUs that will vest after the effectiveness
+of our offering and prior to the expiration of the lockup period, we anticipate that we will continue to net settle RSUs. However, we will continue to have discretion to sell-to-cover rather than net settle with respect to these RSUs. 
+Based on the number of pre-offering RSUs outstanding as
+of                 , 2019 for which the service-based vesting condition had been satisfied on that date, and assuming (i) the liquidity event-based vesting
+condition had been satisfied on that date, (ii) that the price of our common stock at the time of settlement was equal to the assumed initial public offering price of $        per share, and
+(iii) a     % tax withholding rate, we estimate that this tax obligation on the initial settlement date would be approximately
+$                billion in the aggregate. Accordingly, we would expect to deliver an aggregate of
+
+Result 4 (length: 3846 chars):
+Preview: Rule 144 In general, under Rule 144 as currently in effect, once we have been subject to the public company reporting requirements of Section 13 or
+Section 15(d) of the Exchange Act for at least 90 da...
+Full document (length of 3846): Rule 144 In general, under Rule 144 as currently in effect, once we have been subject to the public company reporting requirements of Section 13 or
+Section 15(d) of the Exchange Act for at least 90 days, an eligible stockholder is entitled to sell such shares without complying with the manner of sale, volume limitation or notice provisions of Rule 144, subject to compliance with the public
+information requirements of Rule 144. To be an eligible stockholder under Rule 144, such stockholder must not be deemed to have been one of our affiliates for purposes of the Securities Act at any time during the 90 days preceding a sale and who has
+beneficially owned the shares proposed to be sold for at least six months, including the holding period of any prior owner other than our affiliates. If such a person has beneficially owned the shares proposed to be sold for at least one year,
+including the holding period of any prior owner other than our affiliates, then such person is entitled to sell such shares without complying with any of the requirements of Rule 144, subject further to the expiration of the lockup and market
+standoff agreements described below. In general, under Rule 144, as currently in effect, our affiliates or persons selling shares on
+behalf of our affiliates are entitled to sell our shares as follows, subject to expiration of the lockup and market standoff agreements described below. Beginning 90 days after the date of this prospectus, within any three-month period, such
+stockholders may sell a number of shares that does not exceed the greater of: 
+
+ 
+
+ 
+ 1% of the number of common stock then outstanding, which will equal
+approximately                  shares immediately after this offering; or 
+
+ 
+
+ 
+ the average weekly trading volume of our common stock during the four calendar weeks preceding the filing of a
+notice on Form 144 with respect to such sale. Sales under Rule 144 by our affiliates or persons selling shares on
+behalf of our affiliates are also subject to certain manner of sale provisions and notice requirements and to the availability of current public information about us. Rule 701 Rule 701 generally allows a
+stockholder who was issued shares under a written compensatory plan or contract and who is not deemed to have been an affiliate of our company during the immediately preceding 90 days, to sell these shares in reliance on Rule 144, but without
+being required to comply with the public information, holding period, volume limitation or notice provisions of Rule 144. Rule 701 also permits affiliates of our company to sell their Rule 701 shares under Rule 144 without complying with the holding
+period requirements of Rule 144. All holders of Rule 701 shares, however, are required by that rule to wait until 90 days after the date of this prospectus before selling those shares under Rule 701, subject further to the expiration of the lockup
+and market standoff agreements described below. Form S-8 Registration Statements We intend to file one or more registration statements on Form S-8 under the Securities Act with the SEC
+to register the offer and sale of shares of our common stock that are issuable under our 2010 Plan, 2013 Plan, 2019 Plan and ESPP, as well as our non-plan share awards. These registration statements will
+become effective immediately on filing. Shares covered by these registration statements will then be eligible for sale in the public markets, subject to vesting restrictions, any applicable lockup and market standoff agreements described below, and
+Rule 144 limitations applicable to affiliates. Lockup and Market Standoff Agreements We, and all of our directors, executive officers, the selling stockholders, and the record holders of substantially all of our common stock and
+securities exercisable or exchangeable for or convertible into our
